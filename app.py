@@ -50,10 +50,6 @@ def predict_dropout(attendance_pct, marks_pct, family_income, prev_dropout_hist)
     ml_high_prob = float(proba[1])
 
     # ── Rule-based overrides (higher priority than ML model) ──────
-    # Trigger High Risk if any critical threshold is breached:
-    #   • Attendance < 40%
-    #   • Marks < 35%
-    #   • Family Income = Low AND Prior Dropout = Yes
     rule_triggered = (
         attendance_pct < 40
         or marks_pct < 35
@@ -61,7 +57,6 @@ def predict_dropout(attendance_pct, marks_pct, family_income, prev_dropout_hist)
     )
 
     if rule_triggered:
-        # Clamp confidence floor to 82%; use model's value if it's already higher
         confidence = round(max(ml_high_prob, 0.82) * 100, 1)
         return "High Risk", confidence
 
@@ -157,5 +152,6 @@ def logout():
 
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 8000))
     app.run(host="0.0.0.0", port=port, debug=False)
+
