@@ -4,47 +4,60 @@
     <title>DropoutGuard AI - 230 Project</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-       .card { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-       .btn-predict { background: #667eea; border: none; }
-       .btn-predict:hover { background: #764ba2; }
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .card { border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .btn-predict { background: #667eea; border: none; }
+        .btn-predict:hover { background: #764ba2; }
     </style>
 </head>
 <body>
 <div class="container mt-5">
-    <div class="card p-4">
-        <h2 class="text-center mb-4">🎓 Student Dropout Prediction System</h2>
-        <h6 class="text-center text-muted">230 Project - AI Counseling Assistant</h6>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card p-4">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h2 class="mb-0">🎓 Student Dropout Prediction</h2>
+                        <h6 class="text-muted mt-1">230 Project - AI Counseling Assistant</h6>
+                    </div>
+                    <div class="text-end">
+                        <span class="badge bg-primary mb-1 d-block">{{ role_label }}</span>
+                        <a href="/dashboard/{{ role }}" class="btn btn-outline-secondary btn-sm">← Back</a>
+                    </div>
+                </div>
 
-        <form method="POST" action="/predict">
-            <div class="mb-3">
-                <label>Student Name</label>
-                <input type="text" name="name" class="form-control" required>
+                <form method="POST" action="/result">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Attendance %</label>
+                        <input type="number" name="attendance" class="form-control"
+                               min="0" max="100" step="0.1" placeholder="e.g. 75" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Marks %</label>
+                        <input type="number" name="marks" class="form-control"
+                               min="0" max="100" step="0.1" placeholder="e.g. 65" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Family Income Level</label>
+                        <select name="income" class="form-control">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Prior Dropout History?</label>
+                        <select name="prev_dropout" class="form-control">
+                            <option value="no" selected>No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-predict text-white w-100 btn-lg">
+                        Predict Risk 🔍
+                    </button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label>Marks %</label>
-                <input type="number" name="marks" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>Attendance %</label>
-                <input type="number" name="attendance" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>Fees Paid?</label>
-                <select name="fees" class="form-control">
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-predict text-white w-100">Predict Risk 🔍</button>
-        </form>
-
-        {% if result %}
-        <div class="alert alert-{{color}} mt-4 text-center">
-            <h4>{{result}}</h4>
-            <p>{{suggestion}}</p>
         </div>
-        {% endif %}
     </div>
 </div>
 </body>
