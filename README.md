@@ -84,16 +84,20 @@ The platform enables educational institutions to proactively support vulnerable 
 - GitHub
 
 ---
+## 🎥 Demo Video
+
+https://github.com/maisara011/EduGuard-AI-Based-Dropout-Prediction-and-Counselling-System/raw/main/demo.mp4
 
 ## ⚙️ System Workflow
 
 1. Student data is collected.
-2. Data preprocessing is performed.
-3. The trained machine learning model predicts dropout risk.
-4. Students are categorized into risk groups.
-5. Alerts are sent to stakeholders.
-6. Counselling sessions are scheduled.
-7. Progress is continuously monitored.
+2. Data prepr-
+3. cessing is performed.
+4. The trained machine learning model predicts dropout risk.
+5. Students are categorized into risk groups.
+6. Alerts are sent to stakeholders.
+7. Counselling sessions are scheduled.
+8. Progress is continuously monitored.
 
 ---
 
