@@ -87,6 +87,7 @@ The platform enables educational institutions to proactively support vulnerable 
 ## 🎥 Demo Video
 
 https://github.com/maisara011/EduGuard-AI-Based-Dropout-Prediction-and-Counselling-System/raw/main/demo.mp4
+https://drive.google.com/file/d/1-TTu4fJIUOLih5C-0xwcDSjXilYKBFXG/view?usp=drivesdk
 
 ## ⚙️ System Workflow
 
