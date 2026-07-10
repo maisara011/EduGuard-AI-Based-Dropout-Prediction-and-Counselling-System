@@ -1,11 +1,29 @@
 {
-  "builds": [
-    {
-      "src": "templates/index.html",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
+    {
+      "src": "/",
+      "dest": "/templates/login.html"
+    },
+    {
+      "src": "/login",
+      "dest": "/templates/login.html"
+    },
+    {
+      "src": "/index",
+      "dest": "/templates/index.html"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/templates/dashboard.html"
+    },
+    {
+      "src": "/result",
+      "dest": "/templates/result.html"
+    },
+    {
+      "src": "/roles",
+      "dest": "/templates/roles.html"
+    },
     {
       "src": "/(.*)",
       "dest": "/templates/$1"
